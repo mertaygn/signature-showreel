@@ -114,10 +114,40 @@
     .js .is-in:not(.card){opacity:1;transform:none}
     .js .card.is-in{opacity:1}
   }
+
+  /* ===== Sinematik giriş (penguen) — JS yoksa/reduced-motion'da kapalı, içerik normal ===== */
+  #intro, #intro-spacer{ display:none; }
+  @media (prefers-reduced-motion: no-preference){
+    .js #intro{ display:flex; position:fixed; inset:0; z-index:60; background:var(--ink);
+      align-items:center; justify-content:center; will-change:opacity; }
+    .js #intro-spacer{ display:block; height:100vh; }
+  }
+  .intro-inner{ position:relative; text-align:center; padding:0 24px; }
+  .intro-glow{ position:absolute; left:50%; top:44%; transform:translate(-50%,-50%);
+    width:min(72vh,660px); height:min(72vh,660px); border-radius:50%;
+    background:radial-gradient(circle, rgba(243,225,167,.16), rgba(243,225,167,0) 62%);
+    filter:blur(26px); pointer-events:none; will-change:transform,opacity; }
+  .intro-peng{ position:relative; height:min(54vh,500px); width:auto; display:block; margin:0 auto; will-change:transform; }
+  .intro-tag{ position:relative; margin-top:30px; font-family:'Space Mono',monospace; font-size:12px;
+    letter-spacing:5px; color:var(--bluefin); }
+  .intro-cue{ position:absolute; left:50%; bottom:6vh; transform:translateX(-50%); font-family:'Space Mono',monospace;
+    font-size:11px; letter-spacing:3px; color:var(--bluefin); text-transform:uppercase; opacity:.85;
+    animation:introbob 1.8s ease-in-out infinite; }
+  @keyframes introbob{ 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+  <section id="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="intro-glow"></div>
+      <img class="intro-peng" src="penguin-hero.png" alt="" />
+      <div class="intro-tag">NO ORDINARY</div>
+    </div>
+    <div class="intro-cue">Kaydır ↓</div>
+  </section>
+  <div id="intro-spacer"></div>
+
   <div class="wrap">
     <nav>
       <a href="#" aria-label="Signature Experience Agency"><img src="logo.png" alt="Signature Experience Agency" class="logo" /></a>
@@ -278,6 +308,27 @@
         });
       }, {threshold:0.6});
       document.querySelectorAll('.proof .num').forEach(function(n){ cio.observe(n); });
+    }
+
+    // --- sinematik giriş: fixed overlay, ilk viewport boyunca fade + penguen scale ---
+    var intro = document.getElementById('intro');
+    if(intro && !reduce){
+      var peng = intro.querySelector('.intro-peng');
+      var glow = intro.querySelector('.intro-glow');
+      var introTicking = false;
+      function introUpdate(){
+        introTicking = false;
+        var vh = window.innerHeight || 1;
+        var p = Math.min(Math.max(window.scrollY / vh, 0), 1);
+        intro.style.opacity = String(1 - p);
+        if(peng) peng.style.transform = 'translateY(' + (-p * 50) + 'px) scale(' + (1 + p * 0.3) + ')';
+        if(glow) glow.style.opacity = String(1 - p * 0.5);
+        if(p >= 0.999){ intro.style.pointerEvents = 'none'; intro.style.visibility = 'hidden'; }
+        else { intro.style.pointerEvents = ''; intro.style.visibility = ''; }
+      }
+      window.addEventListener('scroll', function(){ if(!introTicking){ introTicking = true; requestAnimationFrame(introUpdate); } }, { passive: true });
+      window.addEventListener('resize', function(){ if(!introTicking){ introTicking = true; requestAnimationFrame(introUpdate); } }, { passive: true });
+      introUpdate();
     }
   </script>
 </body>
