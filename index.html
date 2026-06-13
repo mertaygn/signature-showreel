@@ -4,93 +4,105 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Signature Experience Agency</title>
-<meta name="description" content="Markalar için deneyim, etkinlik ve içerik tasarlayan butik bir ekip. Onlar gösteriş satar, biz denge kurarız." />
+<meta name="description" content="Markalar için deneyim, etkinlik ve içerik tasarlayan butik bir ekip. NOT STANDART!" />
 <meta property="og:title" content="Signature Experience Agency" />
 <meta property="og:description" content="Hissettiren deneyimler, unutulmayan imzalar." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
-  :root{ --ink:#101014; --muted:#6c6c74; --bg:#f4f4f3; --line:#e6e6e3; --card:#fff; }
+  /* Brand palette (guidebook): Black6C #12181F · Bright White #F5F7F6 · Creamed Corn #F3E1A7 · Bluefin #576577 */
+  :root{
+    --ink:#12181F; --bg:#F5F7F6; --cream:#F3E1A7; --bluefin:#576577;
+    --line:#E2E4E3; --card:#FFFFFF;
+  }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Space Grotesk',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
-  .blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0;pointer-events:none}
-  .blob.a{width:520px;height:520px;background:#fff;top:-160px;right:-120px}
-  .blob.b{width:420px;height:420px;background:#e9e9ff;bottom:-140px;left:-120px;opacity:.4}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  body{font-family:'Poppins',system-ui,sans-serif;font-weight:300;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
 
-  nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;position:sticky;top:0;background:rgba(244,244,243,.8);backdrop-filter:blur(10px);z-index:10}
-  .brand{font-family:'Space Mono',monospace;font-weight:700;font-size:18px;letter-spacing:1px}
-  .brand small{color:var(--muted);font-weight:400}
-  .nav-cta{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--ink);padding:9px 16px;border-radius:999px;transition:.2s;white-space:nowrap}
-  .nav-cta:hover{background:var(--ink);color:#fff}
+  /* logo wordmark (penguin SVG eklenecek — şimdilik mono wordmark) */
+  .brand{font-family:'Space Mono',monospace;line-height:1;display:inline-flex;flex-direction:column}
+  .brand b{font-weight:700;font-size:17px;letter-spacing:.5px}
+  .brand span{font-weight:400;font-size:12px;color:var(--bluefin);letter-spacing:1px}
 
-  header{padding:60px 0 30px;text-align:center}
-  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:20px}
-  h1{font-size:clamp(34px,6vw,60px);font-weight:700;line-height:1.05;letter-spacing:-1.5px;max-width:15ch;margin:0 auto}
-  .sub{margin:20px auto 0;max-width:54ch;color:var(--muted);font-size:clamp(15px,2.2vw,18px)}
+  nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+    padding:20px 0;background:rgba(245,247,246,.85);backdrop-filter:blur(10px)}
+  .nav-cta{font-family:'Poppins';font-weight:600;font-size:13px;text-decoration:none;color:var(--ink);
+    border:1.5px solid var(--ink);padding:9px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
+  .nav-cta:hover{background:var(--ink);color:var(--bg)}
 
-  .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#1a1a1f;margin:36px 0 8px;box-shadow:0 30px 60px -28px rgba(0,0,0,.45)}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:4px;color:var(--bluefin);text-transform:uppercase}
+
+  header{padding:70px 0 34px}
+  h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(40px,8vw,92px);line-height:.98;
+    letter-spacing:.5px;text-transform:uppercase;max-width:16ch;margin:18px 0 0}
+  .sub{font-weight:300;font-size:clamp(16px,2.2vw,19px);color:var(--bluefin);max-width:56ch;margin-top:22px}
+
+  .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--ink);
+    margin:36px 0 0;box-shadow:0 28px 60px -30px rgba(18,24,31,.5)}
   .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-  section.block{padding:60px 0 10px}
-  .sec-head{margin-bottom:28px}
-  .sec-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
-  .sec-title{font-size:clamp(24px,4vw,38px);font-weight:700;letter-spacing:-1px;margin-top:8px}
-  .sec-intro{color:var(--muted);max-width:60ch;margin-top:12px;font-size:15px}
+  section.block{padding:72px 0 0}
+  .sec-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;color:var(--bluefin);text-transform:uppercase}
+  .sec-title{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1;
+    letter-spacing:.5px;text-transform:uppercase;margin-top:10px}
+  .sec-intro{font-weight:300;color:var(--bluefin);max-width:62ch;margin-top:14px;font-size:15.5px}
 
-  /* featured */
-  .featured{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--ink);color:#fff;border-radius:20px;overflow:hidden;margin-top:8px}
-  .featured .txt{padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;justify-content:center}
-  .featured .tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:#b9b9c6;margin-bottom:14px}
-  .featured h3{font-size:clamp(24px,3.5vw,34px);font-weight:700;letter-spacing:-.5px;margin-bottom:12px}
-  .featured p{color:#c9c9d2;font-size:15px;margin-bottom:22px}
-  .featured .play-link{align-self:flex-start;background:#fff;color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;transition:.2s}
+  /* featured: Onayyy (dark) */
+  .featured{display:grid;grid-template-columns:1.15fr 1fr;gap:0;background:var(--ink);color:var(--bg);
+    border-radius:16px;overflow:hidden;margin-top:18px}
+  .featured .txt{padding:clamp(28px,4vw,46px);display:flex;flex-direction:column;justify-content:center}
+  .featured .tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--cream);margin-bottom:16px}
+  .featured h3{font-family:'Poppins';font-weight:700;font-size:clamp(22px,3vw,30px);line-height:1.12;margin-bottom:14px}
+  .featured p{font-weight:300;color:#C3C8CF;font-size:15px;margin-bottom:24px}
+  .featured .play-link{align-self:flex-start;background:var(--cream);color:var(--ink);text-decoration:none;
+    font-family:'Poppins';font-weight:600;font-size:14px;padding:12px 24px;border-radius:999px;transition:.2s}
   .featured .play-link:hover{transform:translateY(-2px)}
-  .featured .art{background:linear-gradient(135deg,#2a2a32,#15151a);display:flex;align-items:center;justify-content:center;min-height:240px;font-family:'Space Mono',monospace;color:#54545f;font-size:13px;letter-spacing:2px}
+  .featured .art{background:linear-gradient(135deg,#1c2530,#10151b);display:flex;align-items:center;justify-content:center;
+    min-height:230px;font-family:'Space Mono',monospace;color:#3a4654;font-size:13px;letter-spacing:3px}
 
   /* grid */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
-  .card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-decoration:none;color:var(--ink);transition:.18s}
-  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(0,0,0,.3);border-color:#d6d6d2}
-  .card .ctag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
-  .card .brand-name{font-size:18px;font-weight:700;margin-bottom:6px}
-  .card .idea{color:var(--muted);font-size:14px;flex:1}
-  .card .more{margin-top:16px;font-size:13px;font-weight:600;color:var(--ink)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px;text-decoration:none;color:var(--ink);transition:.18s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(18,24,31,.4);border-color:var(--bluefin)}
+  .card .ctag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--bluefin);text-transform:uppercase;margin-bottom:14px}
+  .card .bn{font-family:'Poppins';font-weight:700;font-size:18px;margin-bottom:6px}
+  .card .idea{font-weight:300;color:var(--bluefin);font-size:14px;flex:1;line-height:1.5}
+  .card .more{margin-top:16px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--ink)}
   .card .more:after{content:" →"}
+  .note{font-weight:300;color:var(--bluefin);font-size:13px;margin-top:18px;font-style:italic}
 
-  .note{color:var(--muted);font-size:13px;margin-top:18px;font-style:italic}
-
-  .cta{margin:56px 0 64px;background:var(--ink);color:#fff;border-radius:22px;padding:clamp(36px,6vw,64px);text-align:center}
-  .cta h2{font-size:clamp(26px,4.5vw,44px);font-weight:700;letter-spacing:-1px;max-width:20ch;margin:0 auto 26px}
+  .cta{margin:64px 0;background:var(--ink);color:var(--bg);border-radius:18px;padding:clamp(40px,6vw,70px);text-align:center}
+  .cta h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(30px,5.5vw,60px);line-height:1;
+    letter-spacing:.5px;text-transform:uppercase;max-width:20ch;margin:0 auto 28px}
   .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .btn{text-decoration:none;font-weight:600;font-size:15px;padding:14px 26px;border-radius:999px;transition:.2s}
-  .btn.primary{background:#fff;color:var(--ink)}
+  .btn{text-decoration:none;font-family:'Poppins';font-weight:600;font-size:15px;padding:14px 28px;border-radius:999px;transition:.2s}
+  .btn.primary{background:var(--cream);color:var(--ink)}
   .btn.primary:hover{transform:translateY(-2px)}
-  .btn.ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
-  .btn.ghost:hover{background:rgba(255,255,255,.12)}
+  .btn.ghost{border:1.5px solid rgba(245,247,246,.45);color:var(--bg)}
+  .btn.ghost:hover{background:rgba(245,247,246,.12)}
 
-  footer{border-top:1px solid var(--line);padding:30px 0 60px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px}
-  footer a{color:var(--muted);text-decoration:none}
-  footer a:hover{color:var(--ink)}
-  @media(max-width:820px){.grid{grid-template-columns:1fr 1fr}.featured{grid-template-columns:1fr}.featured .art{min-height:140px}}
+  footer{border-top:1px solid var(--line);margin-top:8px;padding:30px 0 64px;display:flex;flex-wrap:wrap;
+    gap:16px;justify-content:space-between;align-items:flex-end;color:var(--bluefin);font-size:13px;font-weight:300}
+  footer a{text-decoration:none}footer a:hover{color:var(--ink)}
+  .standart{font-family:'Space Mono',monospace;letter-spacing:3px;font-size:11px;color:var(--bluefin)}
+  @media(max-width:820px){.grid{grid-template-columns:1fr 1fr}.featured{grid-template-columns:1fr}.featured .art{min-height:130px}}
   @media(max-width:520px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-  <div class="blob a"></div>
-  <div class="blob b"></div>
-
   <div class="wrap">
     <nav>
-      <div class="brand">signature <small>/ experience</small></div>
+      <div class="brand"><b>signature</b><span>experience agency</span></div>
       <a class="nav-cta" href="#iletisim">Konuşalım</a>
     </nav>
 
     <header>
-      <div class="eyebrow">No Ordinary</div>
+      <div class="eyebrow">— NOT STANDART!</div>
       <h1>Hissettiren deneyimler, unutulmayan imzalar.</h1>
       <p class="sub">Markalar için etkinlik, lansman, kurumsal film ve interaktif deneyim tasarlayan butik bir ekip. 10+ yıllık kıdem, butik çeviklik.</p>
     </header>
@@ -99,12 +111,9 @@
       <iframe src="https://player.vimeo.com/video/1201016372?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1&amp;autoplay=1&amp;muted=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Signature Experience Showreel"></iframe>
     </div>
 
-    <!-- ÖNE ÇIKAN -->
     <section class="block" id="isler">
-      <div class="sec-head">
-        <div class="sec-label">Öne Çıkan</div>
-        <div class="sec-title">Onayyy</div>
-      </div>
+      <div class="sec-label">Öne Çıkan</div>
+      <div class="sec-title">Onayyy</div>
       <div class="featured">
         <div class="txt">
           <div class="tag">İNTERAKTİF / ÖZGÜN OYUN</div>
@@ -116,75 +125,29 @@
       </div>
     </section>
 
-    <!-- KONSEPTLER -->
     <section class="block">
-      <div class="sec-head">
-        <div class="sec-label">Konsept Atölyesi</div>
-        <div class="sec-title">Markalar için hayal ettiklerimiz</div>
-        <p class="sec-intro">İşe alınmayı beklemedik — hayran olduğumuz markalar için kendi inisiyatifimizle konseptler geliştirdik. Her biri bir fikir, bir aktivasyon, bir deneyim önerisi.</p>
-      </div>
+      <div class="sec-label">Konsept Atölyesi</div>
+      <div class="sec-title">Markalar için hayal ettiklerimiz</div>
+      <p class="sec-intro">İşe alınmayı beklemedik — hayran olduğumuz markalar için kendi inisiyatifimizle konseptler geliştirdik. Her biri bir fikir, bir aktivasyon, bir deneyim önerisi.</p>
       <div class="grid">
-        <a class="card" href="https://magnum-pitch.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Kampanya</div><div class="brand-name">Magnum</div>
-          <div class="idea">"Gerçek Haz Planlanmaz" — rakiplerin kurgulu içeriğine karşı "anlık" hazzı sahiplenen yaz konsepti.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://bioderma-pitch.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Aktivasyon</div><div class="brand-name">Bioderma</div>
-          <div class="idea">"Dermatolog Sahile İndi" — güneş bakımı uzmanlığını tam kullanıldığı yere taşıyan sahil aktivasyonu.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://colgate-pitch.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Konumlandırma</div><div class="brand-name">Colgate</div>
-          <div class="idea">"Doğru Seçim" — ağız bakımında "seçim" kelimesini sahiplenen konumlandırma + raf stratejisi.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://garnier-aktivasyon.signatureexperience.agency" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Aktivasyon</div><div class="brand-name">Garnier</div>
-          <div class="idea">"Güzellik Geri Dönüyor" — çevre günü etrafında geri dönüşüm temalı AVM aktivasyonu.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://nivea-aktivasyon-pitch.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Program</div><div class="brand-name">Nivea</div>
-          <div class="idea">"Skin Lab Roadshow" — tek seferlik etkinliği sürekli, ölçülebilir bir deneyim programına çevirme.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://trendyolmilla.signatureexperience.agency" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Aktivasyon</div><div class="brand-name">Trendyolmilla</div>
-          <div class="idea">"Milla Sahile Gidiyor" — indirim yerine deneyim: plajda görünürlük + uygulamaya dönüşüm.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://redbull-ucus-game.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Oyun · Etkinlik Aktivasyonu</div><div class="brand-name">Red Bull</div>
-          <div class="idea">"Uçuş Günleri" — etkinlikte QR ile oynanan uçuş oyunu; izleyiciyi katılımcıya çevirir.</div><div class="more">Oyna</div>
-        </a>
-        <a class="card" href="https://blackbruin-pitch.signatureexperience.agency" target="_blank" rel="noopener">
-          <div class="ctag">Oyun · Aktivasyon</div><div class="brand-name">Black Bruin</div>
-          <div class="idea">"BLAST" — düşmanları vur, kazan, vending'den ürününü al. Oynayarak ikram, paylaşılabilir an.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://pindrinksgame.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Oyun · Aktivasyon</div><div class="brand-name">PIN</div>
-          <div class="idea">"Saf Nişancı" — katkıları vur, safı topla; "Saf. Doğal." konumlandırmasını oyuna döken aktivasyon.</div><div class="more">Oyna</div>
-        </a>
-        <a class="card" href="https://sting-ver-coskuyu.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Oyun</div><div class="brand-name">Sting</div>
-          <div class="idea">"Ver Coşkuyu" — QR ile 30 saniyelik hız oyunu, F1 ruhu, paylaşılabilir kart.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://sesu-yaz-pitch.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Deneyim & OOH</div><div class="brand-name">Sesu</div>
-          <div class="idea">"Pürüzsüz Yaz" — yaz "pürüzsüzlük" hissini sahiplenen sahil/vapur deneyimi + OOH.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://gratis-repo.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Retail Aktivasyon</div><div class="brand-name">Gratis</div>
-          <div class="idea">"Bu Yaz Kendine Bak" — indirim savaşına girmeden mesaj sahiplenen, atıl varlıkları aktive eden retail kurgusu.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://boyner-quest-presentation.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Oyunlaştırma</div><div class="brand-name">Boyner</div>
-          <div class="idea">"Retail Quest" — mağazada günlük QR görevleriyle alışverişi yaşayan bir deneyime çevirme.</div><div class="more">Konsepti gör</div>
-        </a>
-        <a class="card" href="https://turkiye-sigorta-pitch.vercel.app" target="_blank" rel="noopener">
-          <div class="ctag">Konsept · Strateji</div><div class="brand-name">Türkiye Sigorta</div>
-          <div class="idea">"Sevilen Marka" — bilinirliği sevgiye çeviren hikâye stratejisi + AI asistan "Bilge".</div><div class="more">Konsepti gör</div>
-        </a>
+        <a class="card" href="https://magnum-pitch.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Kampanya</div><div class="bn">Magnum</div><div class="idea">"Gerçek Haz Planlanmaz" — rakiplerin kurgulu içeriğine karşı "anlık" hazzı sahiplenen yaz konsepti.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://bioderma-pitch.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Aktivasyon</div><div class="bn">Bioderma</div><div class="idea">"Dermatolog Sahile İndi" — güneş bakımı uzmanlığını tam kullanıldığı yere taşıyan sahil aktivasyonu.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://colgate-pitch.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Konumlandırma</div><div class="bn">Colgate</div><div class="idea">"Doğru Seçim" — ağız bakımında "seçim" kelimesini sahiplenen konumlandırma + raf stratejisi.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://garnier-aktivasyon.signatureexperience.agency" target="_blank" rel="noopener"><div class="ctag">Konsept · Aktivasyon</div><div class="bn">Garnier</div><div class="idea">"Güzellik Geri Dönüyor" — çevre günü etrafında geri dönüşüm temalı AVM aktivasyonu.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://nivea-aktivasyon-pitch.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Program</div><div class="bn">Nivea</div><div class="idea">"Skin Lab Roadshow" — tek seferlik etkinliği sürekli, ölçülebilir bir deneyim programına çevirme.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://trendyolmilla.signatureexperience.agency" target="_blank" rel="noopener"><div class="ctag">Konsept · Aktivasyon</div><div class="bn">Trendyolmilla</div><div class="idea">"Milla Sahile Gidiyor" — indirim yerine deneyim: plajda görünürlük + uygulamaya dönüşüm.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://redbull-ucus-game.vercel.app" target="_blank" rel="noopener"><div class="ctag">Oyun · Etkinlik Aktivasyonu</div><div class="bn">Red Bull</div><div class="idea">"Uçuş Günleri" — etkinlikte QR ile oynanan uçuş oyunu; izleyiciyi katılımcıya çevirir.</div><div class="more">Oyna</div></a>
+        <a class="card" href="https://blackbruin-pitch.signatureexperience.agency" target="_blank" rel="noopener"><div class="ctag">Oyun · Aktivasyon</div><div class="bn">Black Bruin</div><div class="idea">"BLAST" — düşmanları vur, kazan, vending'den ürününü al. Oynayarak ikram, paylaşılabilir an.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://pindrinksgame.vercel.app" target="_blank" rel="noopener"><div class="ctag">Oyun · Aktivasyon</div><div class="bn">PIN</div><div class="idea">"Saf Nişancı" — katkıları vur, safı topla; "Saf. Doğal." konumlandırmasını oyuna döken aktivasyon.</div><div class="more">Oyna</div></a>
+        <a class="card" href="https://sting-ver-coskuyu.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Oyun</div><div class="bn">Sting</div><div class="idea">"Ver Coşkuyu" — QR ile 30 saniyelik hız oyunu, F1 ruhu, paylaşılabilir kart.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://sesu-yaz-pitch.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Deneyim & OOH</div><div class="bn">Sesu</div><div class="idea">"Pürüzsüz Yaz" — yaz "pürüzsüzlük" hissini sahiplenen sahil/vapur deneyimi + OOH.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://gratis-repo.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Retail</div><div class="bn">Gratis</div><div class="idea">"Bu Yaz Kendine Bak" — indirim savaşına girmeden mesaj sahiplenen, atıl varlıkları aktive eden kurgu.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://boyner-quest-presentation.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Oyunlaştırma</div><div class="bn">Boyner</div><div class="idea">"Retail Quest" — mağazada günlük QR görevleriyle alışverişi yaşayan bir deneyime çevirme.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" href="https://turkiye-sigorta-pitch.vercel.app" target="_blank" rel="noopener"><div class="ctag">Konsept · Strateji</div><div class="bn">Türkiye Sigorta</div><div class="idea">"Sevilen Marka" — bilinirliği sevgiye çeviren hikâye stratejisi + AI asistan "Bilge".</div><div class="more">Konsepti gör</div></a>
       </div>
       <p class="note">Bu çalışmalar, markalardan brief almadan, kendi inisiyatifimizle geliştirdiğimiz konseptlerdir.</p>
     </section>
 
-    <!-- CTA -->
     <section class="cta" id="iletisim">
       <h2>Hadi farklı bir şey yaratalım.</h2>
       <div class="btns">
@@ -194,10 +157,10 @@
     </section>
 
     <footer>
-      <div class="brand" style="font-size:15px">signature <small>/ experience agency</small></div>
-      <div>
-        <a href="mailto:hello@signatureexperience.agency">hello@signatureexperience.agency</a> ·
-        <a href="https://signatureexperience.agency">signatureexperience.agency</a>
+      <div class="brand"><b>signature</b><span>experience agency</span></div>
+      <div style="text-align:right">
+        <div><a href="https://signatureexperience.agency">signatureexperience.agency</a></div>
+        <div class="standart">NOT STANDART!</div>
       </div>
     </footer>
   </div>
