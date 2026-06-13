@@ -103,7 +103,19 @@
   footer a{text-decoration:none}footer a:hover{color:var(--ink)}
   @media(max-width:820px){.grid,.steps,.faces{grid-template-columns:1fr 1fr}.proof{grid-template-columns:1fr 1fr;gap:28px 20px}}
   @media(max-width:520px){.grid,.steps,.faces{grid-template-columns:1fr}}
+
+  /* scroll-reveal — progressive enhancement: sadece .js varken ve hareket tercihi açıkken gizler.
+     JS yoksa / reduced-motion'da içerik tam görünür kalır. Kart hover'ı bozulmaz (kartlar opacity-only). */
+  @media (prefers-reduced-motion: no-preference){
+    .js header,.js .video-wrap,.js .proof>div,.js .sec-label,.js .sec-title,.js .sec-intro,.js .filters,.js .face,.js .step,.js .cta{
+      opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)
+    }
+    .js .card{opacity:0;transition:opacity .55s ease}
+    .js .is-in:not(.card){opacity:1;transform:none}
+    .js .card.is-in{opacity:1}
+  }
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <div class="wrap">
@@ -223,6 +235,50 @@
     // sayaç otomatik — kart eklendikçe kendini günceller, elle dokunulmaz
     const kc=document.querySelector('[data-count="konsept"]'); if(kc) kc.textContent=cards.length;
     const oc=document.querySelector('[data-count="oyun"]'); if(oc) oc.textContent=document.querySelectorAll('.card.game').length;
+
+    // --- scroll animasyon (defensible: IntersectionObserver yoksa hepsi görünür; reduced-motion'da kapalı) ---
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var sel = 'header,.video-wrap,.proof>div,.sec-label,.sec-title,.sec-intro,.filters,.card,.face,.step,.cta';
+    var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+
+    // grup içi kademeli gecikme (sadece doğrudan çocuklara)
+    function stagger(parentSel, step, mod){
+      document.querySelectorAll(parentSel).forEach(function(p){
+        Array.prototype.forEach.call(p.children, function(c,i){
+          c.style.transitionDelay = ((mod ? i % mod : i) * step) + 'ms';
+        });
+      });
+    }
+    stagger('.proof', 70, 0); stagger('.grid', 55, 3); stagger('.faces', 90, 0); stagger('.steps', 90, 0);
+
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(e){ e.classList.add('is-in'); });   // eski tarayıcı: hepsini göster
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); } });
+      }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+      els.forEach(function(e){ io.observe(e); });
+    }
+
+    // sayaç count-up (yalnızca hareket tercihi açıkken; değerler yukarıda zaten set edildi)
+    if(!reduce && ('IntersectionObserver' in window)){
+      var cio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(!en.isIntersecting) return;
+          var el = en.target; cio.unobserve(el);
+          var m = el.textContent.trim().match(/^(\d+)(\D*)$/); if(!m) return;
+          var target = parseInt(m[1],10), suffix = m[2] || '', dur = 900, t0 = null;
+          el.textContent = '0' + suffix;
+          requestAnimationFrame(function tick(t){
+            if(!t0) t0 = t;
+            var p = Math.min((t - t0) / dur, 1);
+            el.textContent = Math.round(p * target) + suffix;
+            if(p < 1) requestAnimationFrame(tick);
+          });
+        });
+      }, {threshold:0.6});
+      document.querySelectorAll('.proof .num').forEach(function(n){ cio.observe(n); });
+    }
   </script>
 </body>
 </html>
