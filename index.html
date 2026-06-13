@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Signature Experience Agency — Showreel</title>
+<meta name="description" content="Markalar için deneyim, etkinlik ve içerik tasarlayan butik bir ekip. 10+ yıl." />
+<meta property="og:title" content="Signature Experience Agency — Showreel" />
+<meta property="og:description" content="Hissettiren deneyimler, unutulmayan imzalar." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#101014; --muted:#6c6c74; --bg:#f4f4f3; --line:#e3e3e0; --card:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Space Grotesk',system-ui,sans-serif;color:var(--ink);background:var(--bg);
+    line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+  }
+  /* soft blurred blobs (deck vibe) */
+  .blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0;pointer-events:none}
+  .blob.a{width:520px;height:520px;background:#ffffff;top:-160px;right:-120px}
+  .blob.b{width:420px;height:420px;background:#e9e9ff;bottom:-140px;left:-120px;opacity:.4}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+  .brand{font-family:'Space Mono',monospace;font-weight:700;font-size:18px;letter-spacing:1px}
+  .brand small{color:var(--muted);font-weight:400;letter-spacing:.5px}
+  .nav-cta{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--ink);
+    padding:9px 16px;border-radius:999px;transition:.2s}
+  .nav-cta:hover{background:var(--ink);color:#fff}
+
+  header{padding:64px 0 36px;text-align:center}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:22px}
+  h1{font-size:clamp(34px,6vw,62px);font-weight:700;line-height:1.05;letter-spacing:-1.5px;max-width:14ch;margin:0 auto}
+  .sub{margin:22px auto 0;max-width:52ch;color:var(--muted);font-size:clamp(15px,2.2vw,18px)}
+
+  .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
+    background:linear-gradient(135deg,#1a1a1f,#3a3a42);margin:38px 0 8px;box-shadow:0 30px 60px -28px rgba(0,0,0,.45)}
+  .video-wrap iframe,.video-wrap video{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;gap:14px}
+  .play{width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);
+    display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.3)}
+  .play:after{content:"";border-left:22px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
+  .video-placeholder span{font-family:'Space Mono',monospace;letter-spacing:2px;font-size:13px;opacity:.8}
+
+  .exp{padding:64px 0 24px;text-align:center}
+  .exp .label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:20px}
+  .logos{display:flex;flex-wrap:wrap;gap:14px 38px;align-items:center;justify-content:center}
+  .logos span{font-size:clamp(18px,3vw,26px);font-weight:700;letter-spacing:.5px;color:var(--ink);opacity:.85}
+  .exp .note{margin-top:18px;color:var(--muted);font-size:14px}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:48px 0}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .pillar h3{font-size:17px;margin-bottom:8px}
+  .pillar p{color:var(--muted);font-size:14px}
+
+  .cta{margin:36px 0 64px;background:var(--ink);color:#fff;border-radius:22px;padding:clamp(36px,6vw,64px);text-align:center}
+  .cta h2{font-size:clamp(26px,4.5vw,44px);font-weight:700;letter-spacing:-1px;max-width:18ch;margin:0 auto 26px}
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{text-decoration:none;font-weight:600;font-size:15px;padding:14px 26px;border-radius:999px;transition:.2s}
+  .btn.primary{background:#fff;color:var(--ink)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.12)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0 60px;display:flex;flex-wrap:wrap;
+    gap:14px;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--ink)}
+  @media(max-width:720px){.pillars{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+
+  <div class="wrap">
+    <nav>
+      <div class="brand">signature <small>/ experience agency</small></div>
+      <a class="nav-cta" href="#iletisim">Konuşalım</a>
+    </nav>
+
+    <header>
+      <div class="eyebrow">No Ordinary</div>
+      <h1>Hissettiren deneyimler, unutulmayan imzalar.</h1>
+      <p class="sub">Markalar için etkinlik, lansman, kurumsal film ve çalışan deneyimi tasarlayan butik bir ekip. 10+ yıllık kıdem, butik çeviklik.</p>
+    </header>
+
+    <!-- SHOWREEL: video gelince aşağıdaki .video-placeholder'ı bir iframe (YouTube/Vimeo) veya <video> ile değiştir -->
+    <div class="video-wrap">
+      <!-- ÖRNEK (YouTube): <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+      <div class="video-placeholder">
+        <div class="play"></div>
+        <span>SHOWREEL — yakında</span>
+      </div>
+    </div>
+
+    <section class="exp">
+      <div class="label">EKİBİMİZİN YER ALDIĞI PROJELER</div>
+      <div class="logos">
+        <span>Sephora</span><span>Adidas</span><span>Samsung</span><span>Skoda</span><span>Fuse Tea</span>
+      </div>
+      <p class="note">Ekibimiz bu markaların deneyim projelerinde yer aldı.</p>
+    </section>
+
+    <section class="pillars">
+      <div class="pillar"><h3>Deneyim &amp; Etkinlik</h3><p>Lansman, gala, yıldönümü, bayi buluşması, roadshow.</p></div>
+      <div class="pillar"><h3>Görsel &amp; İçerik</h3><p>Kurumsal film, motion, CGI, sosyal medya içeriği.</p></div>
+      <div class="pillar"><h3>Çalışan Deneyimi</h3><p>Onboarding, ödül, özel gün ve kültür kurguları.</p></div>
+    </section>
+
+    <section class="cta" id="iletisim">
+      <h2>Hadi farklı bir şey yaratalım.</h2>
+      <div class="btns">
+        <a class="btn primary" href="mailto:hello@signatureexperience.agency">hello@signatureexperience.agency</a>
+        <a class="btn ghost" href="tel:+905314817181">+90 531 481 71 81</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="brand" style="font-size:15px">signature <small>/ experience agency</small></div>
+      <div>
+        <a href="mailto:hello@signatureexperience.agency">hello@signatureexperience.agency</a> ·
+        <a href="https://signatureexperience.agency">signatureexperience.agency</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
