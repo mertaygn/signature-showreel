@@ -29,8 +29,8 @@
 
   .eyebrow{font-family:'Poppins',sans-serif;font-weight:500;letter-spacing:0;font-size:12px;letter-spacing:4px;color:var(--bluefin);text-transform:uppercase}
   header{padding:74px 0 30px}
-  h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(44px,9vw,104px);line-height:.95;
-    letter-spacing:.5px;text-transform:uppercase;margin:18px 0 0;max-width:15ch}
+  h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(44px,9vw,104px);line-height:1.08;
+    letter-spacing:.5px;text-transform:uppercase;margin:18px 0 0;max-width:15ch;text-wrap:balance}
   .lead{font-weight:300;font-size:clamp(17px,2.4vw,21px);color:var(--ink);max-width:30ch;margin-top:22px}
   .hero-cta{display:inline-block;margin-top:26px;background:var(--ink);color:var(--bg);text-decoration:none;
     font-family:'Poppins';font-weight:600;font-size:15px;padding:14px 26px;border-radius:999px;transition:.2s}
@@ -49,8 +49,9 @@
 
   section.block{padding:72px 0 0}
   .sec-label{font-family:'Poppins',sans-serif;font-weight:500;letter-spacing:0;font-size:12px;letter-spacing:3px;color:var(--bluefin);text-transform:uppercase}
-  .sec-title{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:.5px;text-transform:uppercase;margin-top:10px}
+  .sec-title{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(30px,5vw,52px);line-height:1.08;letter-spacing:.5px;text-transform:uppercase;margin-top:10px;text-wrap:balance}
   .sec-intro{font-weight:300;color:var(--bluefin);max-width:62ch;margin-top:14px;font-size:15.5px}
+  .lead,.sec-intro,.card .idea,.face p,.step p,.cta p{text-wrap:pretty}
 
   /* filters */
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
@@ -99,7 +100,7 @@
   .step p{font-weight:300;color:var(--bluefin);font-size:14.5px}
 
   .cta{margin:70px 0 60px;background:var(--ink);color:var(--bg);border-radius:18px;padding:clamp(40px,6vw,72px);text-align:center}
-  .cta h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(32px,5.5vw,64px);line-height:1;letter-spacing:.5px;text-transform:uppercase;max-width:18ch;margin:0 auto 18px}
+  .cta h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(32px,5.5vw,64px);line-height:1.07;letter-spacing:.5px;text-transform:uppercase;max-width:18ch;margin:0 auto 18px;text-wrap:balance}
   .cta p{font-weight:300;color:#C3C8CF;max-width:46ch;margin:0 auto 28px;font-size:16px}
   .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .btn{text-decoration:none;font-family:'Poppins';font-weight:600;font-size:15px;padding:14px 28px;border-radius:999px;transition:.2s}
@@ -171,12 +172,12 @@
     <section class="block" id="ne-yapiyoruz">
       <div class="sec-label">Ne Yapıyoruz</div>
       <div class="sec-title">Markanın üç yüzü</div>
-      <p class="sec-intro">Markanızı sahada, içeride ve ekranda hissedilen bir deneyime çeviririz. Tek elden, baştan sona.</p>
+      <p class="sec-intro">Markanızı sahada, içeride ve ekranda hissedilen bir deneyime çeviririz. Tek&nbsp;elden, baştan&nbsp;sona.</p>
       <div class="faces">
         <div class="face">
           <div class="fl">Dış Yüz</div>
           <h4>Etkinlik &amp; Deneyim</h4>
-          <p>Lansman · gala · roadshow · pop-up deneyim · gerilla tanıtım · bayi &amp; VIP buluşmaları</p>
+          <p>Lansman · gala · roadshow · pop-up deneyim · gerilla tanıtım · kampüs iletişimi · bayi &amp; VIP buluşmaları</p>
         </div>
         <div class="face">
           <div class="fl">İç Yüz</div>
@@ -205,7 +206,7 @@
     <section class="block" id="konseptler">
       <div class="sec-label">Nasıl Düşünüyoruz</div>
       <div class="sec-title">Markalar için ürettiğimiz fikirler</div>
-      <p class="sec-intro">Markaları nasıl ele aldığımızın kanıtı — her biri bir fikir, bir aktivasyon, bir deneyim. Filtreleyip gezin.</p>
+      <p class="sec-intro">Markaları nasıl ele aldığımızın kanıtı.<br>Her biri bir fikir, bir aktivasyon, bir deneyim. Filtreleyip gezin.</p>
 
       <div class="filters">
         <button class="filter active" data-filter="all">Tümü</button>
@@ -231,7 +232,7 @@
         <a class="card" data-cat="icerik" href="redbull-4x/" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="thumbs/redbull4x.jpg" alt="" width="760" height="428" /></div><div class="ctag">İçerik · Format</div><div class="bn">Red Bull 4X</div><div class="idea">"Performance Test" — Creator'lar Red Bull sporcularına karşı; 4 spor, 1v1, biyometrik baskı. "Bahane üretmek bitti, performans konuşacak."</div><div class="more">Konsepti gör</div></a>
         <a class="card" data-cat="aktivasyon" href="https://sesu-yaz-pitch.vercel.app" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="thumbs/sesu.jpg" alt="" width="760" height="428" /></div><div class="ctag">Deneyim & OOH</div><div class="bn">Sesu</div><div class="idea">"Pürüzsüz Yaz" — yaz "pürüzsüzlük" hissini sahiplenen sahil/vapur deneyimi + OOH.</div><div class="more">Konsepti gör</div></a>
         <a class="card" data-cat="aktivasyon" href="https://sting-ver-coskuyu.vercel.app" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="thumbs/sting.jpg" alt="" width="760" height="428" /></div><div class="ctag">Aktivasyon · Oyun fikri</div><div class="bn">Sting</div><div class="idea">"Ver Coşkuyu" — QR ile 30 saniyelik hız oyunu, F1 ruhu, paylaşılabilir kart.</div><div class="more">Konsepti gör</div></a>
-        <a class="card" data-cat="aktivasyon" href="https://trendyolmilla.signatureexperience.agency" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="thumbs/trendyolmilla.jpg" alt="" width="760" height="428" /></div><div class="ctag">Aktivasyon</div><div class="bn">Trendyolmilla</div><div class="idea">"Milla Sahile Gidiyor" — indirim yerine deneyim: plajda görünürlük + uygulamaya dönüşüm.</div><div class="more">Konsepti gör</div></a>
+        <a class="card" data-cat="aktivasyon" href="https://trendyolmilla.signatureexperience.agency" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="thumbs/trendyolmilla.jpg" alt="" width="760" height="428" /></div><div class="ctag">Aktivasyon</div><div class="bn">TrendyolMilla</div><div class="idea">"Milla Sahile Gidiyor" — indirim yerine deneyim: plajda görünürlük + uygulamaya dönüşüm.</div><div class="more">Konsepti gör</div></a>
         <a class="card" data-cat="strateji" href="https://turkiye-sigorta-pitch.vercel.app" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="thumbs/turkiyesigorta.jpg" alt="" width="760" height="428" /></div><div class="ctag">Strateji</div><div class="bn">Türkiye Sigorta</div><div class="idea">"Sevilen Marka" — bilinirliği sevgiye çeviren hikâye stratejisi + AI asistan "Bilge".</div><div class="more">Konsepti gör</div></a>
         <a class="card" data-cat="icerik" href="ulike/" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="thumbs/ulike.jpg" alt="" width="760" height="428" /></div><div class="ctag">Video · Prodüksiyon</div><div class="bn">Ulike</div><div class="idea">Ulike için ürettiğimiz marka filmi — safir buz soğutma teknolojisi, lifestyle ve ürün anlatımı bir arada.</div><div class="more play">İzle</div></a>
       </div>
@@ -249,7 +250,7 @@
 
     <section class="cta" id="iletisim">
       <h2>Markanız için bir deneyim tasarlayalım.</h2>
-      <p>Aklınızdaki işi — etkinlik, lansman, film ya da bir fikir — 30 dakikada konuşalım.</p>
+      <p>Aklınızdaki işi — etkinlik, lansman, film ya da bir fikir.<br>30 dakikada konuşalım.</p>
       <div class="btns">
         <a class="btn primary" href="mailto:hello@signatureexperience.agency?subject=30%20dakika%20konuşalım">30 dakika konuşalım →</a>
         <a class="btn ghost" href="tel:+905314817181">+90 531 481 71 81</a>
@@ -274,7 +275,7 @@
     }));
     // sayaç otomatik — kart eklendikçe kendini günceller, elle dokunulmaz
     const kc=document.querySelector('[data-count="konsept"]'); if(kc) kc.textContent=cards.length;
-    const oc=document.querySelector('[data-count="oyun"]'); if(oc) oc.textContent=document.querySelectorAll('.card.game').length;
+    const oc=document.querySelector('[data-count="oyun"]'); if(oc) oc.textContent=document.querySelectorAll('.grid .more.play').length;
 
     // --- scroll animasyon (defensible: IntersectionObserver yoksa hepsi görünür; reduced-motion'da kapalı) ---
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
