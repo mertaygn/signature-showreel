@@ -275,7 +275,7 @@
     }));
     // sayaç otomatik — kart eklendikçe kendini günceller, elle dokunulmaz
     const kc=document.querySelector('[data-count="konsept"]'); if(kc) kc.textContent=cards.length;
-    const oc=document.querySelector('[data-count="oyun"]'); if(oc) oc.textContent=document.querySelectorAll('.grid .more.play').length;
+    const oc=document.querySelector('[data-count="oyun"]'); if(oc) oc.textContent=document.querySelectorAll('.grid .card[data-cat="oyun"]').length;
 
     // --- scroll animasyon (defensible: IntersectionObserver yoksa hepsi görünür; reduced-motion'da kapalı) ---
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
